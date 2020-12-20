@@ -1,0 +1,60 @@
+doctype html
+html(lang="en")
+	head
+		title=title
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous")
+		script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous")
+		link(rel="stylesheet" href="primary.css")
+
+	body
+		.container
+			.row
+				.col
+				.col-8.header
+					.row
+						p.gx-5.gy-1=title
+					.row
+						.col.mx-1.mb-1.btn-group(role="group")
+							a.btn.btn-sm.btn-light.my-1.ms-1#homebtn(href="/") Home
+							a.btn.btn-sm.btn-light.my-1#tosbtn(href="/terms-of-service") Terms of Service
+							a.btn.btn-sm.btn-light.my-1#supportbtn(href="/support") Support
+							div.dropdown
+								button.btn.btn-sm.btn-light.my-1.me-1.dropdown-toggle#colourbtn(data-bs-toggle="dropdown") Dark Mode
+								ul.dropdown-menu
+									li
+										a.dropdown-item(href="#") Auto
+										a.dropdown-item(href="#") Dark
+										a.dropdown-item(href="#") Light
+							script.
+								function doathing() {
+									setInterval(function(){set_button_color()}, 1000);
+									set_button_color();
+								}
+								function b(btn,color) {
+									if (color=="dark") {
+										document.getElementById(btn).classList.add("btn-dark")
+										document.getElementById(btn).classList.remove("btn-light")
+									}
+									if (color=="light") {
+										document.getElementById(btn).classList.remove("btn-dark")
+										document.getElementById(btn).classList.add("btn-light")
+									}
+								}
+								function set_button_color(){
+									if (getComputedStyle(document.documentElement).getPropertyValue('--darkmode')=="true") {
+										b("homebtn","dark");
+										b("tosbtn","dark");
+										b("supportbtn","dark");
+										b("colourbtn","dark");
+									} else {
+										b("homebtn","light");
+										b("tosbtn","light");
+										b("supportbtn","light");
+										b("colourbtn","light");
+									}
+								}
+								window.onload = doathing;
+				.col
+	block content

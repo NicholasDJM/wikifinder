@@ -1,0 +1,42 @@
+:root {
+	--preferred-font: "Helvetica";
+}
+.main {
+	background-image: linear-gradient(white,#002153);
+	position:fixed;
+	height:100%;
+	width:100%;
+	z-index:-1;
+	overflow: hidden;
+}
+.header{
+	background: dimgrey;
+	border-radius: 0px 0px 10px 10px;
+}
+.content {
+	background: white;
+	color:black;
+	/*overflow: scroll;*/
+}
+.title{
+	color:white;
+}
+.code{
+	border:1px solid black;
+}
+p {
+	font-family:var(--preferred-font);
+	font-size: 12pt;
+}
+h1 {
+	font-family:var(--preferred-font);
+	font-size: 24pt;
+}
+h2 {
+	font-family:var(--preferred-font);
+	font-size: 18pt;
+}
+h3 {
+	font-family:var(--preferred-font);
+	font-size: 14pt;
+}

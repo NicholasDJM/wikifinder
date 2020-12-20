@@ -1,0 +1,27 @@
+@media (prefers-color-scheme: light) {
+	.main {background: white; color: black;}
+	.header{background: gainsboro;}
+	:root{--darkmode:false;}
+}
+@media (prefers-color-scheme: dark) {
+	.main {background: black; color: white;}
+	.header{background: dimgrey;}
+	:root{--darkmode:true;}
+}
+:root{
+	color-scheme: light dark;
+}
+.header {
+	border-radius: 0px 0px 3px 3px;
+}
+.btn {
+	border-radius: 5px;
+}
+p {
+	font-family: "Helvetica";
+	font-size: 14pt;
+}
+h2 {
+	font-family: "Helvetica";
+	font-size: 20pt;
+}

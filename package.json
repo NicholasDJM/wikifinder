@@ -1,0 +1,20 @@
+{
+  "name": "wikifinder",
+  "version": "1.0.0",
+  "description": "Finds helpful resources based on what Steam game you are currently playing.",
+  "main": "server.js",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "express": "^4.17.1",
+    "less": "^4.0.0",
+    "pug": "^3.0.0",
+    "request-ip": "^2.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Nicholas Miller <millernicholas298@gmail.com>",
+  "license": "WTFPL",
+  "private": true
+}
