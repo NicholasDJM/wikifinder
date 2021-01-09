@@ -1,0 +1,95 @@
+doctype html
+html(lang="en")
+	head
+		title=title
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous")
+		script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous")
+		link(rel="stylesheet" href="primary.css")
+	body
+		.main
+		.container
+			.row
+				.col
+				.col-12.header
+					.row
+						h1.gx-5.mt-3.mb-1.title=title
+					nav.row.m-1.nav.nav-fill
+						ul.col.nav.nav-pills(id="tabbar" role="tablist")
+							li.nav-item(role="presentation")
+								a.nav-link.active(id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true") Home
+							li.nav-item(role="presentation")
+								a.nav-link(id="news-tab" data-bs-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false") News
+							li.nav-item(role="presentation")
+								a.nav-link(id="tos-tab" data-bs-toggle="tab" href="#tos" role="tab" aria-controls="tos" aria-selected="false") Terms Of Service
+							li.nav-item(role="presentation")
+								a.nav-link(id="privacy-tab" data-bs-toggle="tab" href="#privacy" role="tab" aria-controls="privacy" aria-selected="false") Privacy Policy
+							li.nav-item(role="presentation")
+								a.nav-link(id="support-tab" data-bs-toggle="tab" href="#support" role="tab" aria-controls="support" aria-selected="false") Support
+							li.nav-item(role="presentation")
+								a.nav-link(id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false") Contact
+						.col.justify-content-end.nav
+							- var auth=auth
+							- var steamID=steamID
+							if auth
+									a.btn(href="#"): img(src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png")
+							else if auth
+									getSteamUserData(steamID)
+									
+							
+				.col
+		.container
+			.row
+				.col
+				.col-12
+					.row
+						.col
+						.col-11.content
+							.row
+								.col
+								.col-11.mt-3
+									.tab-content(id="content")
+										.tab-pane.fade.show.active(id="home" role="tabpanel" aria-labelledby="home-tab")
+											h2 #{title} is made to help you find info on any game.
+											<p> Having trouble remembering that one crafting recipe?<br/>
+											| Trying to find where that key is?<br/>
+											| Can't find the one quest item you <em>swear</em> doesn't exist?<br/>
+											<br/>
+											| With #{title}, we've gathered links, guides, and videos for whatever game you're playing.<br/>
+											| Just login with Steam, and set #{homepage_url} as your homepage in the Steam Web Browser.
+											| You can even save several useful links, per game, so you can always go back to info you need.<br/>
+											| Finally, if our page doesn't have the info you need, you can use DuckDuckGo's search to find what you need.</p>
+										.tab-pane.fade(id="news" role="tabpanel" aria-labelledby="news-tab")
+										.tab-pane.fade(id="tos" role="tabpanel" aria-labelledby="tos-tab")
+											.row
+												h2.my-3 Terms of services
+											.row
+												.col
+												.col-11.my-3
+													include ../localised/terms-of-service.pug
+												.col
+										.tab-pane.fade(id="privacy" role="tabpanel" aria-labelledby="privacy-tab")
+											.row
+												p.my-3 Privacy Policy goes here.
+											.row
+												.col
+												.col-11
+													iframe.code(src="/privacy-policy.txt")
+												.col
+										.tab-pane.fade(id="support" role="tabpanel" aria-labelledby="support-tab")
+											p Knowledge Base and FAQs go here.
+										.tab-pane.fade(id="contact" role="tabpanel" aria-labelledby="contact-tab")
+											p Contact info goes here.
+								.col
+						.col
+				.col
+		.container#cookie-notice(style="position: fixed;top:100%")
+			.row
+				.col-5.alert.alert-secondary(role="alert")
+					.row
+						.col: p Do you accept cookies? In order to login, you must have accept cookies. Read our <a href="#" onclick="function goto_privacy(){document.getElementById('privacy-tab').click();}">Policy Policy</a> on cookies and how we use them.
+					.row
+						nav.nav.justify-content-end
+							button.btn.btn-secondary.mx-1 Deny
+							button.btn.btn-primary.mx-1 Accept

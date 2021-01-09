@@ -1,0 +1,25 @@
+- var error=error
+- var lang=lang
+- var terms=terms
+doctype html
+html
+	head
+		link(rel="stylesheet" href="/secondary.css")
+		meta(charset="UTF-8")
+		title=title
+	body.main
+		center.error-page
+			case error
+				when 404
+					h1=error+" "+terms[lang].e404
+				when 418
+					h1=error+" "+terms[lang].e418
+				when 500
+					h1=error+" "+terms[lang].e500
+				default
+					h1="Error "+error
+			a(href="/") Home
+			br
+			br
+			a(href="https://http.cat")
+				img.errimg(src="https://http.cat/" + error)

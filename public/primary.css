@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 :root {
-	--preferred-font: "Helvetica";
+	--preferred-font: "Helvetica","Open Sans","Arial",sans-serif,monospace;
 }
 .main {
 	background-image: linear-gradient(white,#002153);
@@ -10,7 +12,7 @@
 	overflow: hidden;
 }
 .header{
-	background: dimgrey;
+	background: #A0A0Af;
 	border-radius: 0px 0px 10px 10px;
 }
 .content {
@@ -23,6 +25,10 @@
 }
 .code{
 	border:1px solid black;
+}
+a {
+	color: white;
+	font-family: var(--preferred-font);
 }
 p {
 	font-family:var(--preferred-font);
