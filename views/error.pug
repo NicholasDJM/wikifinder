@@ -1,23 +1,21 @@
 - var error=error
-- var lang=lang
-- var terms=terms
 doctype html
 html
 	head
 		link(rel="stylesheet" href="/secondary.css")
 		meta(charset="UTF-8")
 		title=title
-	body.main
+	body
 		center.error-page
 			case error
 				when 404
-					h1=error+" "+terms[lang].e404
+					h1=error+" "+__("404")
 				when 418
-					h1=error+" "+terms[lang].e418
+					h1=error+" "+__("418")
 				when 500
-					h1=error+" "+terms[lang].e500
+					h1=error+" "+__("500")
 				default
-					h1="Error "+error
+					h1=__("error")+" "+error
 			a(href="/") Home
 			br
 			br

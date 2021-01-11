@@ -1,0 +1,12 @@
+{
+	"title": "WikiFinder",
+	"home_title": "Home",
+	"home_button": "Home",
+	"setup_title": "Setup",
+	"setup_button": "Setup",
+	"tos_title": "Terms of Service",
+	"tos_button": "Terms of Service",
+	"404": "Page not found",
+	"418": "I'm a teapot",
+	"500": "Internal server error"
+}

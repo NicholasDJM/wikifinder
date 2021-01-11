@@ -117,4 +117,4 @@ dist
 
 .eslintrc.json
 .eslintrc.js
-.eslintrc.coffee
+.eslintrc.yml

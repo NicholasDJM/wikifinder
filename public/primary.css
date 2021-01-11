@@ -1,48 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 :root {
 	--preferred-font: "Helvetica","Open Sans","Arial",sans-serif,monospace;
 }
 .main {
 	background-image: linear-gradient(white,#002153);
-	position:fixed;
-	height:100%;
-	width:100%;
-	z-index:-1;
-	overflow: hidden;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	font-family: var(--preferred-font);
 }
-.header{
+.header {
 	background: #A0A0Af;
-	border-radius: 0px 0px 10px 10px;
+	border-radius: 0 0 10px 10px;
 }
 .content {
 	background: white;
-	color:black;
-	/*overflow: scroll;*/
+	color: black;
 }
-.title{
-	color:white;
+.title {
+	color: white;
 }
-.code{
-	border:1px solid black;
+.code {
+	border: 1px solid black;
 }
 a {
+	color: black;
+}
+a.navlink {
 	color: white;
-	font-family: var(--preferred-font);
 }
 p {
-	font-family:var(--preferred-font);
 	font-size: 12pt;
 }
 h1 {
-	font-family:var(--preferred-font);
 	font-size: 24pt;
 }
 h2 {
-	font-family:var(--preferred-font);
 	font-size: 18pt;
 }
 h3 {
-	font-family:var(--preferred-font);
 	font-size: 14pt;
 }

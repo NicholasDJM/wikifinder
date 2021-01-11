@@ -1,22 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 :root {
 	--preferred-font: "Helvetica","Open Sans","Arial",sans-serif,monospace;
 }
-body {
-	color: black;
+.error-page {
 	font-family: var(--preferred-font);
 	background-image: linear-gradient(white,#002153);
-	position:fixed;
-	height:100%;
-	width:100%;
-	z-index:-1;
+	color: black;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
 	overflow: hidden;
 }
 h1 {
 	font-size: 24pt;
 }
-
 .errimg {
 	width: 400px;
 }
