@@ -24,6 +24,14 @@
 .code {
 	border: 1px solid black;
 }
+.terms-of-service {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px;
+	font-family: "Lucida Console";
+	font-size: 14px;
+	margin: 10px;
+}
 a {
 	color: black;
 }

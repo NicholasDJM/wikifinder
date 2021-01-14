@@ -1,0 +1,115 @@
+doctype html
+html(lang=__("lang"))
+	head
+		title=__("title")
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous")
+		script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous")
+		script(src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js")
+		script(src="https://unpkg.com/vanilla-picker@2")
+		script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/contrast-js@0.0.3/contrast.min.js")
+		link(href="/homepage_primary.css" rel="stylesheet")
+	body
+		.container.g-0#homepage
+			.row
+				center.col.my-3.g-0#search
+					iframe(src="https://duckduckgo.com/search.html?width=600&duck=yes&prefill=Search%20DuckDuckGo&bgcolor=333333&focus=yes" style="overflow:hidden;margin:0;padding:0;width:733px;height:60px;" frameborder="0" title="DuckDuckGo Search")
+			.container
+				.row.pb-2#bookmarks
+					.col-1.mx-4.py-2#bookmarkadd
+						a(href="#" data-bs-toggle="modal" data-bs-target="#bookmarkModal")
+							.add-bookmark +
+							.bookmark-text.pt-2=__("bookmark_add_button_text")
+					//TODO: Add Drag and Drop re-ordering to bookmarks
+		.modal.fade#bookmarkModal(tabindex="-1" aria-labelledby="bookmark-modal-title" aria-hidden="true")
+			.modal-dialog.modal-dialog-centered
+				.modal-content
+					.modal-header
+						h5.modal-title#bookmark-modal-title=__("bookmark_modal_title")
+						button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close" tabindex="0")
+					.modal-body
+						form
+							.mb-2
+								label.col-form-label(for="bookmark-name")=__("bookmark_modal_label_name")
+								input.form-control#bookmark-name(type="text" pattern="/[a-zA-Z0-9 _-]/" tabindex="0")
+								label.col-form-label=__("bookmark_modal_label_name_help")
+							.mb-3
+								label.col-form-label(for="bookmark-url")=__("bookmark_modal_label_url")
+								input.form-control#bookmark-url(type="text" tabindex="0")
+							.mb-1
+								label.col-form-label(for="bookmark-icon")=__("bookmark_modal_label_icon")
+								input.form-control#bookmark-icon(type="text" tabindex="0")
+							.mb-3
+								input.form-check-input#bookmark-icon-favicon(type="checkbox" onclick="favicon(this)" tabindex="0" aria-labelledby="bookmark-icon-favicon-label")
+								label.px-1.form-check-label#bookmark-icon-favicon-label=__("bookmark_modal_label_checkbox")
+							.mb-3
+								label.col-form-label(for="color-picker")=__("bookmark_modal_label_color")
+								.mb-2#color-picker: #color-sample(tabindex="0")
+							.mb-3
+								input.form-control#bookmark-edit(type="text" style="display:none")
+					.modal-footer
+						button.btn.btn-secondary(type="button" data-bs-dismiss="modal" onclick="clear_form()" tabindex="0")=__("bookmark_modal_close_button")
+						button.btn.btn-primary(type="button" data-bs-dismiss="modal" onclick="saveBookmark()" tabindex="0")=__("bookmark_modal_add_button")
+					
+		script(src="/bookmarks.js")
+		script.
+			picker = new Picker({
+				parent: document.getElementById('color-sample'),
+				alpha: true,
+				editor: true,
+				color:'#808080ff',
+				editorFormat: 'hex',
+			})
+			let picked_color
+			picker.onClose = function (color) {
+				picker.setColor(window.getComputedStyle(document.getElementById('color-sample'),null).getPropertyValue("background-color"),true);
+			}
+			picker.onChange = function (color) {
+				picked_color = color.rgbaString;
+			}
+			picker.onDone = function (color) {
+				document.getElementById('color-sample').style.backgroundColor = picked_color;
+				picker.setColor(picked_color, true)
+			}
+			let old_icon_address
+			let interval_clear=false
+			function favicon(cb=false) {
+				let c=cb.checked
+				if (c) {
+					document.getElementById('bookmark-icon').readOnly = true;
+					old_icon_address = document.getElementById('bookmark-icon').value;
+					setTimeout(function(){updateFavicon();}, 100);
+					interval_clear=false;
+				} else {
+					document.getElementById('bookmark-icon').readOnly = false;
+					document.getElementById('bookmark-icon').value = old_icon_address;
+					interval_clear=true;
+				}
+			}
+			
+			function updateFavicon() {
+				if (!interval_clear) {
+					setTimeout(function(){updateFavicon();}, 100);
+					document.getElementById('bookmark-icon').value = document.getElementById('bookmark-url').value +'/favicon.ico';
+				}
+			}
+			
+			function clear_form(){
+				document.getElementById('bookmark-name').value = "";
+				document.getElementById('bookmark-url').value = "";
+				interval_clear = true;
+				favicon();
+				setTimeout(function(){
+					document.getElementById('bookmark-icon-favicon').checked = false;
+					document.getElementById('bookmark-icon').value = "";
+				},101)
+				document.getElementById('color-sample').style.backgroundColor = "#808080";
+				picker.setColor("#808080ff", true);
+				old_icon_address = "";
+				
+			}
+			
+			function saveBookmark() {
+				addBookmark(document.getElementById('bookmark-name').value,document.getElementById('bookmark-url').value,document.getElementById('bookmark-icon').value,window.getComputedStyle(document.getElementById('color-sample'),null).getPropertyValue("background-color"))
+			}

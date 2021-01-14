@@ -1,20 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-:root {
-	--preferred-font: "Helvetica","Open Sans","Arial",sans-serif,monospace;
+body {
+	margin: 0;
 }
 .error-page {
-	font-family: var(--preferred-font);
+	font-family: "Helvetica","Open Sans","Arial",sans-serif,monospace;
 	background-image: linear-gradient(white,#002153);
 	color: black;
-	position: fixed;
-	height: 100%;
+	position: absolute;
 	width: 100%;
-	z-index: -1;
-	overflow: hidden;
-}
-h1 {
-	font-size: 24pt;
+	height: 100%;
 }
 .errimg {
 	width: 400px;
+}
+h1 {
+	font-size: 24pt;
 }

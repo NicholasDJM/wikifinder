@@ -1,11 +1,12 @@
 doctype html
-html(lang="en")
+html(lang=__("lang"))
 	head
-		title="Test"
+		title=__("title")
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous")
 		script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous")
+		link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css")
 		link(rel="stylesheet" href="primary.css")
 	body
 		.main
@@ -13,19 +14,30 @@ html(lang="en")
 				.row
 					.col
 					.col-12.header
-						.row
+						.row.m-2
 							.col
-							.col-11
-								h1.title WikiFinder
-							.col
+								h1.title#title=__("title")
+							.col.nav.justify-content-end
+								.dropdown
+									button.btn.btn-secondary.dropdown-toggle#languageDropdown(type="button" data-bs-toggle="dropdown" aria-expanded="false")=__("language")
+									ul.dropdown-menu(aria-labelledby="languageDropdown")
+										li
+											a.dropdown-item(href="#" onclick="setLanguage('EN')") English
+										li
+											a.dropdown-item(href="#" onclick="setLanguage('FR')") Français
 						.row.my-2
 							.col
-								a.btn.btn-light.mx-1(href="/") Home
-								a.btn.btn-light.mx-1(href="/setup") Setup
-								a.btn.btn-light.mx-1(href="/tos") Terms of Service and Privacy Policy
-								a.btn.btn-light.mx-1(href="https://discord.gg/D6zkPWf575") Discord Support Server
+								a.btn.btn-light.mx-1(href="/")=__("home_button")
+								a.btn.btn-light.mx-1(href="/setup")=__("setup_button")
+								a.btn.btn-light.mx-1(href="/tos")=__("tos_button")
+								a.btn.btn-light.mx-1(href="/privacy")=__("privacy_button")
+								a.btn.btn-light.mx-1(href="https://discord.gg/D6zkPWf575")
+									.row
+										.col.ps-1.pe-0
+											.bi-discord(style="font-size: 1rem;color:#7289DA")
+										.col.pe-1.ps-1=__("support_button")
 							.col.justify-content-end.nav
 								a.mx-1(href="/homepage")
-									img(src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png")
+									img(src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png" alr="Sign in through Steam")
 					.col
 			block precontent

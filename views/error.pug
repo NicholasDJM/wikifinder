@@ -1,21 +1,12 @@
-- var error=error
 doctype html
 html
 	head
 		link(rel="stylesheet" href="/secondary.css")
 		meta(charset="UTF-8")
-		title=title
+		title=__(String(error))
 	body
 		center.error-page
-			case error
-				when 404
-					h1=error+" "+__("404")
-				when 418
-					h1=error+" "+__("418")
-				when 500
-					h1=error+" "+__("500")
-				default
-					h1=__("error")+" "+error
+			h1=__(String(error))
 			a(href="/") Home
 			br
 			br
