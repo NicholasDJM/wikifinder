@@ -1,9 +1,9 @@
 # WikiFinder
-[![GitHub Latest Release](https://img.shields.io/github/v/release/NicholasDJM/wikifinder?sort=semver&style=flat)](https://github.com/NicholasDJM/wikifinder/releases/latest)
-[![Build Status](https://img.shields.io/travis/com/NicholasDJM/wikifinder?style=flat)](https://travis-ci.com/NicholasDJM/wikifinder)
-[![Dependencies](https://img.shields.io/david/NicholasDJM/wikifinder?style=flat)](https://david-dm.org/NicholasDJM/wikifinder)
-[![Known Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/NicholasDJM/wikifinder?style=flat)](https://snyk.io/test/github/NicholasDJM/wikifinder?targetFile=package.json)
-[![Code Quality](https://img.shields.io/codefactor/grade/github/NicholasDJM/wikifinder/main?style=flat)](https://www.codefactor.io/repository/github/nicholasdjm/wikifinder)
+[![GitHub Latest Release](https://img.shields.io/github/v/release/NicholasDJM/wikifinder?sort=semver)](https://github.com/NicholasDJM/wikifinder/releases/latest)
+[![Build Status](https://img.shields.io/travis/com/NicholasDJM/wikifinder)](https://travis-ci.com/NicholasDJM/wikifinder)
+[![Dependencies](https://img.shields.io/david/NicholasDJM/wikifinder)](https://david-dm.org/NicholasDJM/wikifinder)
+[![Known Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/NicholasDJM/wikifinder)](https://snyk.io/test/github/NicholasDJM/wikifinder?targetFile=package.json)
+[![Code Quality](https://img.shields.io/codefactor/grade/github/NicholasDJM/wikifinder/main)](https://www.codefactor.io/repository/github/nicholasdjm/wikifinder)
 [![WTFPL License](https://img.shields.io/badge/license-WTFPL-brightgreen?style=flat)](http://www.wtfpl.net/)
 
 [![Discord Support](https://img.shields.io/discord/797245072118644757?logo=Discord&style=social)](https://discord.gg/D6zkPWf575)
