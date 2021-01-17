@@ -52,9 +52,6 @@ app.use(function(req, res, next){
 
 
 app.use(express.static(path.join(__dirname, "/public")));
-app.get("/vanilla-picker.js", function(req, res){
-	res.sendFile(path.join(__dirname, "node_modules", "vanilla-picker", "dist", "vanilla-picker.js"));
-});
 
 app.get("/", function(req, res) {
 	res.render("index");

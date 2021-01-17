@@ -9,4 +9,4 @@
 [![Discord Support](https://img.shields.io/discord/797245072118644757?logo=Discord&style=social)](https://discord.gg/D6zkPWf575)
 
 
-WikiFinder is a website that gets your [Steam](https://store.steampowered.com) info to see what game you are playing, and finds info related to that game, including links to wikis, videos, and articles. You can then set your homepage for the Steam Web Browser to this page, and every time you open the browser, you'll see links for popular and curated resources related to your game.
+WikiFinder is a homepage for the [Steam](https://store.steampowered.com) Overlay Web Browser, which supports bookmarks, DuckDuckGo search, and, and curated links to resources like wikis, videos, and articles based on whichever game you're playing on Steam.

@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 :root {
 	--preferred-font: "Helvetica","Open Sans","Arial",sans-serif,monospace;
-	--radial: radial-gradient(rgba(0,0,0,0),rgba(127,127,127,.5));
-	--border-color: 1px solid rgba(0,0,0,0);
+	--radial: radial-gradient(rgba(127,127,127,.4),rgba(255,255,255,.6));
+	--border-color: 2px solid rgba(0,0,0,0);
+	--border-color-hover: rgba(255,255,255,1);
 }
 body {
 	background-color: #333333;
 	color: white;
 	font-family: var(--preferred-font);
 	font-size: 10pt;
+	height: 100vh;
 }
 .bookmark {
 	border: var(--border-color);
@@ -22,7 +24,7 @@ body {
 	background-color: #222222;
 }
 .bookmark:hover {
-	/*border-color: white;*/
+	border-color: var(--border-color-hover);
 	background-image: var(--radial);
 }
 .bookmark-no-icon {
@@ -37,7 +39,7 @@ body {
 	background-color: #222222;
 }
 .bookmark-no-icon:hover {
-	/*border-color: white;*/
+	border-color: var(--border-color-hover);
 	background-image: var(--radial);
 }
 .add-bookmark {
@@ -49,10 +51,10 @@ body {
 	overflow: hidden;
 	text-align: center;
 	background-color: #222222;
-	font-size: 68pt;
+	font-size: 62pt;
 }
 .add-bookmark:hover {
-	/*border-color: white;*/
+	border-color: var(--border-color-hover);
 	background-image: var(--radial);
 }
 .dummy-bookmark {
@@ -92,13 +94,59 @@ a:active {
 #color-sample {
 	width: 100pt;
 	height: 100pt;
-	border: 1px solid grey;
+	border: 1px solid rgb(206, 212, 218);
 	border-radius: 15px;
 	background-color: #222222;
 	cursor: pointer;
+	overflow: hidden;
 }
 #color-sample:hover {
+	border-color: var(--border-color-hover);
+	background-image: var(--radial);
+	cursor: pointer;
+}
+#bookmarkremove {
+	font-size: 76px;
+	position: absolute;
+	height: 100pt;
+	width: 100pt;
+	right: 0;
+	bottom: 0;
+	border: 1px solid black;
+	background-color: #222222;
+	vertical-align: middle;
+	overflow: hidden;
+	text-align: center;
+	border-radius: 15px;
+	color: #ff4444;
+	display: none;
+}
+#bookmark-icon-preview {
+	width: 100pt;
+	height: 100pt;
+	text-align: center;
+}
+#color-picker {
+	cursor: pointer;
+	position: fixed;
+	height: 100pt;
+	width: 100pt;
+	border: 0;
+	border-radius: 15px;
+}
+#color-picker:hover ~ #color-sample {
 	border-color: white;
 	background-image: var(--radial);
 	cursor: pointer;
+}
+#context-menu {
+	background-color: #222222;
+	position: absolute;
+	display: none;
+	border: 1px solid black;
+}
+.contextItem:hover {
+	background-color: #0767BA;
+	cursor: pointer;
+	width: 100%;
 }

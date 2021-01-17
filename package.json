@@ -9,14 +9,15 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node index.js"
+		"start": "yarn build&&node .",
+		"build": "npx browserify public/javascript/bookmarks.js -o public/javascript/bookmarks.bundle.js"
 	},
 	"author": "Nicholas Miller",
 	"license": "WTFPL",
 	"dependencies": {
 		"chalk": "^4.1.0",
-		"contrast-js": "^0.0.3",
 		"express": "^4.17.1",
+		"font-color-contrast": "^1.0.3",
 		"i18n": "^0.13.2",
 		"openid-client": "^4.2.2",
 		"pug": "^3.0.0",
@@ -24,6 +25,7 @@
 		"vanilla-picker": "^2.11.0"
 	},
 	"devDependencies": {
+		"browserify": "^17.0.0",
 		"brunch": "^3.0.0",
 		"coffeescript": "^2.5.1",
 		"eslint": "^7.17.0",

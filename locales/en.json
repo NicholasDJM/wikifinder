@@ -23,9 +23,16 @@
 	"bookmark_modal_label_name_help": "Alphanumeric, spaces, dashes, and underscore characters only.",
 	"bookmark_modal_label_url": "URL Address",
 	"bookmark_modal_label_icon": "Icon URL Address (Optional)",
-	"bookmark_modal_label_checkbox": "Use Website's Favicon",
-	"bookmark_modal_label_color": "Background Color",
+	"bookmark_modal_label_favicon_checkbox": "Use Website's Favicon",
+	"bookmark_modal_label_color": "Click icon to change background color",
+	"bookmark_modal_label_contain_checkbox": "Contain icon",
 	"bookmark_modal_close_button": "Cancel",
 	"bookmark_modal_add_button": "Add",
-	"bookmark_add_button_text": "Add Bookmark"
+	"bookmark_modal_delete_button": "Delete",
+	"bookmark_add_button_text": "Add Bookmark",
+	"bookmark_edit_button_text": "Edit Bookmark",
+	"homepage_context_menu_create_bookmark": "Create Bookmark",
+	"homepage_context_menu_edit_bookmark": "Edit Bookmark",
+	"homepage_context_menu_delete_bookmark": "Delete Bookmark",
+	"homepage_context_menu_help": "You can also drag bookmarks to edit or delete them."
 }
