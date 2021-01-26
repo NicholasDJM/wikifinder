@@ -1,14 +1,15 @@
 doctype html
 html
 	head
-		link(rel="stylesheet" href="/secondary.css")
+		link(rel="stylesheet" href="/css/secondary.css")
 		meta(charset="UTF-8")
 		title=__(String(error))
 	body
-		center.error-page
-			h1=__(String(error))
-			a(href="/") Home
-			br
-			br
-			a(href="https://http.cat")
-				img.errimg(src="https://http.cat/" + error)
+		.errorPage
+			center
+				a(href="https://http.cat")
+					img.errimg(src="https://http.cat/" + error)
+				h1=__(String(error))
+				a(href="/")=__("error_page_go_home")
+				br
+				a(href="javascript:void(0);" onclick="window.history.back();")=__("error_page_go_back")

@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 :root {
-	--preferred-font: "Helvetica","Open Sans","Arial",sans-serif,monospace;
+	--preferred-font: "Helvetica", "Open Sans", "Arial", sans-serif, monospace;
 }
 .main {
-	background-image: linear-gradient(white,#002153);
+	background-image: linear-gradient(white, #002153);
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -11,7 +11,7 @@
 	font-family: var(--preferred-font);
 }
 .header {
-	background: #A0A0Af;
+	background: #A0A0AF;
 	border-radius: 0 0 10px 10px;
 }
 .content {
@@ -24,11 +24,11 @@
 .code {
 	border: 1px solid black;
 }
-.terms-of-service {
+.legal {
 	border: 1px solid black;
 	border-radius: 5px;
 	padding: 10px;
-	font-family: "Lucida Console";
+	font-family: "Lucida Console", sans-serif;
 	font-size: 14px;
 	margin: 10px;
 }

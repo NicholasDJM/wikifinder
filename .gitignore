@@ -114,3 +114,8 @@ typings/
 .vscode-test
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+sslcert/
+y.bat
+.gitignore
+bookmarks.bundle.js

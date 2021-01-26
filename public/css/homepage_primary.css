@@ -1,27 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 :root {
-	--preferred-font: "Helvetica","Open Sans","Arial",sans-serif,monospace;
-	--radial: radial-gradient(rgba(127,127,127,.4),rgba(255,255,255,.6));
-	--border-color: 2px solid rgba(0,0,0,0);
-	--border-color-hover: rgba(255,255,255,1);
+	--preferred-font: "Helvetica", "Open Sans", "Arial", sans-serif, monospace;
+	--radial: radial-gradient(rgba(127, 127, 127, 0.4), rgba(255, 255, 255, 0.6));
+	--border-color: 2px solid rgba(0, 0, 0, 0);
+	--border-color-hover: rgba(255, 255, 255, 1);
+	--border-radius: 15px;
+	--background-color: #101822;
+	--sidebar-length: 400px;
+	--context-menu-radius: 10px;
 }
 body {
-	background-color: #333333;
+	background-color: #1B2838;
 	color: white;
 	font-family: var(--preferred-font);
 	font-size: 10pt;
-	height: 100vh;
+}
+#homepage {
+	height: 85vh;
 }
 .bookmark {
 	border: var(--border-color);
-	border-radius: 15px;
+	border-radius: var(--border-radius);
 	width: 100pt;
 	height: 100pt;
 	vertical-align: middle;
 	overflow: hidden;
 	text-align: center;
 	font-size: 68pt;
-	background-color: #222222;
+	background-color: var(--background-color);
 }
 .bookmark:hover {
 	border-color: var(--border-color-hover);
@@ -29,14 +35,14 @@ body {
 }
 .bookmark-no-icon {
 	border: var(--border-color);
-	border-radius: 15px;
+	border-radius: var(--border-radius);
 	width: 100pt;
 	height: 100pt;
 	vertical-align: middle;
 	overflow: hidden;
 	text-align: center;
 	font-size: 68pt;
-	background-color: #222222;
+	background-color: var(--background-color);
 }
 .bookmark-no-icon:hover {
 	border-color: var(--border-color-hover);
@@ -44,13 +50,13 @@ body {
 }
 .add-bookmark {
 	border: var(--border-color);
-	border-radius: 15px;
+	border-radius: var(--border-radius);
 	width: 100pt;
 	height: 100pt;
 	vertical-align: middle;
 	overflow: hidden;
 	text-align: center;
-	background-color: #222222;
+	background-color: var(--background-color);
 	font-size: 62pt;
 }
 .add-bookmark:hover {
@@ -72,6 +78,21 @@ body {
 	width: 100%;
 	height: 100%;
 }
+@keyframes attention {
+	from {
+		border: var(--border-color);
+	}
+	to {
+		border: 15px solid white;
+	}
+}
+.bookmark-allow-move {
+	animation-name: attention;
+	animation-duration: 2s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
 a:link {
 	color: white;
 	text-decoration: none;
@@ -91,12 +112,43 @@ a:active {
 .modal {
 	color: black;
 }
+#bookmarkremove {
+	font-size: 76px;
+	position: absolute;
+	height: 100pt;
+	width: 100pt;
+	right: 100px;
+	bottom: 100px;
+	border: 1px solid #FF4444;
+	background-color: var(--background-color);
+	vertical-align: middle;
+	overflow: hidden;
+	text-align: center;
+	border-radius: var(--border-radius);
+	color: #FF4444;
+	display: none;
+}
+.bookmark-icon-preview {
+	width: 100pt;
+	height: 100pt;
+	text-align: center;
+}
+.bookmark-no-icon-preview {
+	border: var(--border-color);
+	border-radius: var(--border-radius);
+	width: 100pt;
+	height: 100pt;
+	vertical-align: middle;
+	overflow: hidden;
+	text-align: center;
+	font-size: 68pt;
+}
 #color-sample {
 	width: 100pt;
 	height: 100pt;
 	border: 1px solid rgb(206, 212, 218);
-	border-radius: 15px;
-	background-color: #222222;
+	border-radius: var(--border-radius);
+	background-color: var(--background-color);
 	cursor: pointer;
 	overflow: hidden;
 }
@@ -105,48 +157,153 @@ a:active {
 	background-image: var(--radial);
 	cursor: pointer;
 }
-#bookmarkremove {
-	font-size: 76px;
-	position: absolute;
-	height: 100pt;
-	width: 100pt;
-	right: 0;
-	bottom: 0;
-	border: 1px solid black;
-	background-color: #222222;
-	vertical-align: middle;
-	overflow: hidden;
-	text-align: center;
-	border-radius: 15px;
-	color: #ff4444;
+.picker_done {
 	display: none;
-}
-#bookmark-icon-preview {
-	width: 100pt;
-	height: 100pt;
-	text-align: center;
-}
-#color-picker {
-	cursor: pointer;
-	position: fixed;
-	height: 100pt;
-	width: 100pt;
-	border: 0;
-	border-radius: 15px;
-}
-#color-picker:hover ~ #color-sample {
-	border-color: white;
-	background-image: var(--radial);
-	cursor: pointer;
 }
 #context-menu {
-	background-color: #222222;
+	background-color: var(--background-color);
 	position: absolute;
 	display: none;
-	border: 1px solid black;
+	max-width: 350px;
+	z-index: 50;
+	border: 1px solid rgba(76, 82, 89, 1);
+	cursor: default;
+	overflow: hidden;
+}
+.contextMenuTopLeft {
+	border-radius: 0 var(--context-menu-radius) var(--context-menu-radius) var(--context-menu-radius);
+}
+.contextMenuTopRight {
+	border-radius: var(--context-menu-radius) 0 var(--context-menu-radius) var(--context-menu-radius);
+}
+.contextMenuBottomLeft {
+	border-radius: var(--context-menu-radius) var(--context-menu-radius) var(--context-menu-radius) 0;
+}
+.contextMenuBottomRight {
+	border-radius: var(--context-menu-radius) var(--context-menu-radius) 0 var(--context-menu-radius);
 }
 .contextItem:hover {
 	background-color: #0767BA;
-	cursor: pointer;
 	width: 100%;
+}
+#languageButton {
+	position: absolute;
+	top: 25px;
+	right: 80px;
+}
+#languageButton a {
+	color: black;
+}
+#settingsButton {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	z-index: 11;
+}
+@keyframes openSidebar {
+	from {
+		opacity: 0;
+		right: -400px;
+	}
+	to {
+		opacity: 1;
+		right: 0;
+	}
+}
+@keyframes closeSidebar {
+	from {
+		opacity: 1;
+		right: 0;
+	}
+	to {
+		opacity: 0;
+		right: -400px;
+	}
+}
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 0.5;
+	}
+}
+@keyframes fadeAway {
+	from {
+		opacity: 0.5;
+	}
+	to {
+		opacity: 0;
+	}
+}
+#sidebar {
+	position: fixed;
+	top: 0;
+	right: -400px;
+	padding: 1rem;
+	width: 400px;
+	background-color: #6C757D;
+	height: 100vh;
+	opacity: 0;
+	overflow: hidden;
+	z-index: 10;
+}
+.showSidebar {
+	animation-name: openSidebar;
+	animation-duration: 250ms;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+.hideSidebar {
+	animation-name: closeSidebar;
+	animation-duration: 250ms;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+#sidebarCloser {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9;
+	background-color: black;
+	opacity: 0.5;
+	cursor: pointer;
+}
+.fadeSidebarCloserToBlack {
+	animation-name: fade;
+	animation-duration: 250ms;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+.fadeSidebarCloserFromBlack {
+	animation-name: fadeAway;
+	animation-duration: 250ms;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+#footer {
+	--footer-size: 55px;
+
+	top: calc(100vh - var(--footer-size));
+	left: 0;
+	height: var(--footer-size);
+	width: 100vw;
+	position: fixed;
+	background-color: black;
+	color: grey;
+	font-size: 24px;
+}
+#game {
+	color: skyblue;
 }

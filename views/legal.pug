@@ -1,0 +1,43 @@
+extends layouts/content-layout.pug
+
+block content
+	.container
+		ul.nav.nav-tabs#tabBar(role="tablist")
+			li.nav-item(role="presentation")
+				a.nav-link.active#tosTab(href="#tos" data-bs-toggle="tab" role="tab" aria-controls="tos" aria-selected="true")=__("tos_button")
+			li.nav-item
+				a.nav-link#privacyTab(href="#privacy" data-bs-toggle="tab" role="tab" aria-controls="privacy" aria-selected="false")=__("privacy_button")
+			li.nav-item
+				a.nav-link#cookieTab(href="#cookie" data-bs-toggle="tab" role="tab" aria-controls="cookie" aria-selected="false")=__("cookie_button")
+		.row.p-3(style="border: 1px solid #DEE2E6;border-top:0;margin-left:0;margin-right:0;border-radius:0 0 1px 1px")
+			.tab-content#tabContent
+				- var language=__("lang")
+				.tab-pane.fade.show.active#tos(role="tabpanel" aria-labelledby="tosTab")
+					h1=__("tos_title")
+					.legal
+						pre
+							case language
+								when "en"
+									include ../public/locales/en/terms_of_service.txt
+								when "fr"
+									include ../public/locales/fr/terms_of_service.txt
+				.tab-pane.fade#privacy(role="tabpanel" aria-labelledby="privacyTab")
+					h1=__("privacy_title")
+					.legal
+						pre
+							case language
+								when "en"
+									="english placeholder"
+								when "fr"
+									="french placeholder"
+				.tab-pane.fade#cookie(role="tabpanel" aria-labelledby="cookieTab")
+					h1=__("cookie_title")
+					.legal
+						pre
+							case language
+								when "en"
+									="english cookie placeholder"
+								when "fr"
+									="french cookie placeholder"
+
+

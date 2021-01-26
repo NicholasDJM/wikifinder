@@ -1,0 +1,7 @@
+.dropdown
+	button.btn.btn-secondary.dropdown-toggle#languageDropdown(type="button" data-bs-toggle="dropdown" aria-expanded="false")=__("language")
+	ul.dropdown-menu(aria-labelledby="languageDropdown")
+		li
+			a.dropdown-item(href="javascript:void(0);" onclick="setLanguage('en')") English
+		li
+			a.dropdown-item(href="javascript:void(0);" onclick="setLanguage('fr')") Français

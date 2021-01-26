@@ -1,0 +1,13 @@
+extends layouts/content-layout.pug
+
+block content
+	.container
+		.row
+			.col
+				h1=__("setup_title")
+		.row
+			.col
+				- var language=__("lang")
+				case language
+					when "en"
+						include locales/en/setup.pug

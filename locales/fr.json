@@ -46,6 +46,6 @@
 	"homepage_context_menu_delete_bookmark": "Supprimer le signet",
 	"homepage_context_menu_help": "Vous pouvez également faire glisser des signets pour les modifier ou les supprimer.",
 	"homepage_settings_title": "Réglages",
-	"homepage_search": "Recherche%20DuckDuckGo",// Don't remove the %20, this variable is used in a address, and must have URL encoding.
+	"homepage_search": "Recherche%20DuckDuckGo",
 	"help_us_translate": ""
 }

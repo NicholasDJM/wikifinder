@@ -42,7 +42,7 @@
 	"bookmark_modal_save_button": "Save",
 	"bookmark_modal_delete_button": "Delete",
 	"bookmark_modal_label_default_color": "Default color is",
-	// Don't add space after the label, its added afterwards.
+	
 	"bookmark_add_button_text": "Add Bookmark",
 	"bookmark_edit_button_text": "Edit Bookmark",
 	"homepage_context_menu_create_bookmark": "Create Bookmark",

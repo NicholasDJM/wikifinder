@@ -1,0 +1,7 @@
+extends: stylelint-config-standard
+rules:
+  color-hex-case: upper
+  color-hex-length: long
+  indentation: tab
+  rule-empty-line-before: never
+  at-rule-empty-line-before: never
